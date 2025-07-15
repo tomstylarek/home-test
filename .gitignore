@@ -5,7 +5,3 @@ package-lock.json
 # Playwright output
 playwright-report/
 test-results/
-
-# Docker volumes (si usaras bind mounts locales)
-*.log
-*.pid
