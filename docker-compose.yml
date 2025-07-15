@@ -1,0 +1,21 @@
+services:
+  demo-app:
+    image: automaticbytes/demo-app
+    platform: linux/arm64/v8          # QEMU workaround
+    ports:
+      - "3100:3100"
+
+  tests:
+    image: mcr.microsoft.com/playwright:v1.45.0-jammy
+    working_dir: /work
+    volumes:
+      - ./:/work
+      - ./playwright-report:/work/playwright-report
+    depends_on:
+      - demo-app
+    environment:
+      BASE_URL: "http://demo-app:3100"
+    command: >
+      bash -c "npm ci &&
+               npx playwright install --with-deps &&
+               npx playwright test --reporter=line"
