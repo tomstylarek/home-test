@@ -1,14 +1,14 @@
-export const TestCredentials = {
+export const credentials = {
 
-    Valid: {
+    valid: {
         username: 'johndoe19',
         password: 'supersecret',
     },
-    Invalid: {
+    invalid: {
         username: 'wronguser',
         password: 'wrongpass'
     },
-    Empty: {
+    empty: {
         username: '',
         password: ''
     }
