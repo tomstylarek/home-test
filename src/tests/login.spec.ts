@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { HomePage } from '../pages/HomePage';
 import { ErrorMessages } from '../constants/ErrorMessages';
-import { TestCredentials } from '../constants/TestCredendials';
+import { credentials } from '../data/credentials';
 
 test.describe('Login tests', () => {
     let loginPage: LoginPage;
@@ -15,19 +15,19 @@ test.describe('Login tests', () => {
     test('User logs in successfully', async ({ page }) => {
         const homePage = new HomePage(page);
 
-        await loginPage.login(TestCredentials.Valid.username, TestCredentials.Valid.password);
-        await homePage.checkWelcomeMessage(TestCredentials.Valid.username);
+        await loginPage.login(credentials.valid.username, credentials.valid.password);
+        await homePage.checkWelcomeMessage(credentials.valid.username);
     });
 
     test('User login failure: wrong credentials', async () => {
         
-        await loginPage.login(TestCredentials.Invalid.username, TestCredentials.Invalid.password);
+        await loginPage.login(credentials.invalid.username, credentials.invalid.password);
         await loginPage.assertOnErrorMessage(ErrorMessages.LoginWrongCredentials);
     });
 
     test('User login failure: blank credentials', async () => {
         
-        await loginPage.login(TestCredentials.Empty.username, TestCredentials.Empty.password);
+        await loginPage.login(credentials.empty.username, credentials.empty.password);
         await loginPage.assertOnErrorMessage(ErrorMessages.LoginEmptyFields);
     });
 })

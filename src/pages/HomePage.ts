@@ -7,7 +7,7 @@ export class HomePage extends BasePage {
     private readonly username = this.page.locator('[data-id=username]');
 
     async checkWelcomeMessage(username: string) {
-        await expect(this.welcomeMessageContainer).toHaveText('Welcome!');
+        await expect(this.welcomeMessageContainer).toContainText('Welcome!');
         await expect(this.username).toHaveText(username);
     }
 

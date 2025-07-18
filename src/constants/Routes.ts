@@ -5,5 +5,6 @@ export enum Routes {
     Home = '/home',
     Grid = '/grid',
     Search = '/search',
+    Order = '/order'
 
 }
