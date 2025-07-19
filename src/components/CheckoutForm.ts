@@ -18,7 +18,9 @@ export class CheckoutForm {
     private readonly expYearInput = this.page.locator('#expyear');
     private readonly cvvInput = this.page.locator('#cvv');
 
-    constructor(protected readonly page: Page) {}
+    private readonly submitButton = this.page.getByRole('button', { name: 'Continue to checkout' });
+
+    constructor(private readonly page: Page) {}
 
     async fill(formData: CheckoutFormData) {
         await this.fullNameInput.fill(formData.fullName);
@@ -38,5 +40,9 @@ export class CheckoutForm {
         } else {
             await this.shippingAddressSameAsBillingCheckbox.uncheck();
         }
+    }
+
+    async submit() {
+        await this.submitButton.click();
     }
 }

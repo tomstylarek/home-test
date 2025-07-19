@@ -1,20 +1,13 @@
-import { expect } from "@playwright/test";
 import { Routes } from "../constants/Routes";
 import { CheckoutFormData } from "../types/CheckoutFormData";
 import { BasePage } from "./BasePage";
 import { CheckoutForm } from "../components/CheckoutForm";
+import { Cart } from "../components/Cart";
 
 export class CheckoutPage extends BasePage {
 
     private readonly checkoutForm = new CheckoutForm(this.page);
-
-    // Cart component selectors
-    private readonly cartComponent = this.page.locator('.container', { hasText: 'Cart' })
-    private readonly cartItems = this.cartComponent.locator('p:not(:has-text("Total"))');
-    private readonly cartTitleContainer = this.cartComponent.locator('h4');
-    private readonly cartCounter = this.cartTitleContainer.locator('span.price b');
-
-    private readonly submitCheckoutButton = this.page.getByRole('button', { name: 'Continue to checkout' });
+    private readonly cart = new Cart(this.page);
 
     override async visit() {
         this.page.goto(Routes.Checkout);
@@ -25,13 +18,10 @@ export class CheckoutPage extends BasePage {
     }
 
     async submitCheckout() {
-        await this.submitCheckoutButton.click();
+        await this.checkoutForm.submit();
     }
 
     async validateTotalCartItems() {
-        await expect(this.cartItems.first()).toBeVisible();
-        const totalItems = await this.cartItems.count();
-
-        await expect(this.cartCounter).toHaveText(totalItems.toString());
+        await this.cart.assertItemCountMatchesTotal();
     }
 }
