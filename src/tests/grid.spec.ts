@@ -1,8 +1,4 @@
 import { test } from '@playwright/test';
-import { CheckoutPage } from '../pages/CheckoutPage';
-import { createCheckoutForm } from '../data/checkoutFormFactory';
-import { OrderPage } from '../pages/OrderPage';
-import { AlertMessages } from '../constants/AlertMessages';
 import { GridPage } from '../pages/GridPage';
 import { GridItem } from '../types/GridItem';
 
