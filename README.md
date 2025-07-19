@@ -12,41 +12,6 @@ Before you begin, ensure you have installed:
    cd home-test
    ```
 
-## ⚠️ Note for Intel/AMD (x86\_64) Users
-
-This project uses a Docker image built for the `arm64` architecture (Apple Silicon - M1/M2).
-
-If you are running on an Intel or AMD processor (`x86_64` architecture), you might encounter an error like:
-
-```
-WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64/v3) and no specific platform was requested
-exec /usr/local/bin/docker-entrypoint.sh: exec format error
-```
-
-To fix this:
-
-1. **Install QEMU emulation support:**
-
-```bash
-docker run --privileged --rm tonistiigi/binfmt --install arm64
-```
-
-2. **Add the following line to your `docker-compose.yml` inside the `demo-app` service:**
-
-```yaml
-  demo-app:
-    image: automaticbytes/demo-app
-    platform: linux/arm64/v8
-    ports:
-      - "3100:3100"
-```
-
-This tells Docker to emulate the `arm64` architecture so the image can run correctly on your system.
-
----
-
-📝 *Note:* Emulation may run slower, but it will allow you to run the tests without issues.
-
 ## Run Tests with Docker (Recommended)
 **Only one command** is needed to execute all tests across multiple browsers and devices:
 ```bash
@@ -103,3 +68,38 @@ If you encounter issues:
   ```
 
 ---
+
+### ⚠️ Note for Intel/AMD (x86\_64) Users
+
+This project uses a Docker image built for the `arm64` architecture (Apple Silicon - M1/M2).
+
+If you are running on an Intel or AMD processor (`x86_64` architecture), you might encounter an error like:
+
+```
+WARNING: The requested image's platform (linux/arm64/v8) does not match the detected host platform (linux/amd64/v3) and no specific platform was requested
+exec /usr/local/bin/docker-entrypoint.sh: exec format error
+```
+
+To fix this:
+
+1. **Install QEMU emulation support:**
+
+```bash
+docker run --privileged --rm tonistiigi/binfmt --install arm64
+```
+
+2. **Add the following line to your `docker-compose.yml` inside the `demo-app` service:**
+
+```yaml
+  demo-app:
+    image: automaticbytes/demo-app
+    platform: linux/arm64/v8
+    ports:
+      - "3100:3100"
+```
+
+This tells Docker to emulate the `arm64` architecture so the image can run correctly on your system.
+
+---
+
+📝 *Note:* Emulation may run slower, but it will allow you to run the tests without issues.
