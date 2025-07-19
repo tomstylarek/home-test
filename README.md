@@ -18,23 +18,24 @@ Before you begin, ensure you have installed:
 docker compose up
 ```
 This will automatically:
-- Pull required Docker images (including the demo app)
+- Pull required Docker demo app image
 - Run tests on:
   - **Desktop**: Chrome, Firefox, Safari
   - **Mobile**: Android (Galaxy S24), iOS (iPhone 15 Pro Max)
 - Generate HTML reports upon completion
 
 ## View Results
-1. **Interactive HTML Report** (opens in your browser):
+1. **Interactive HTML Report** (opens in your browser)
+Visualize the results, running this command from another terminal:
    ```bash
    npx playwright show-report
    ```
-   Or locate the report at: `playwright-report/index.html`
 
 2. **Console Output**: You'll see a summary directly in your terminal.
 
 ## Alternative Execution (without Docker)
-To run locally:
+To run locally, the web app should be running in [localhost:3100](http://localhost:3100), and then:
+
 ```bash
 npm install
 npx playwright test

@@ -1,7 +1,6 @@
 services:
   demo-app:
     image: automaticbytes/demo-app
-    platform: linux/arm64/v8          # QEMU workaround
     ports:
       - "3100:3100"
 
