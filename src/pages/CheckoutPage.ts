@@ -10,7 +10,7 @@ export class CheckoutPage extends BasePage {
     private readonly cart = new Cart(this.page);
 
     override async visit() {
-        this.page.goto(Routes.Checkout);
+        await this.page.goto(Routes.Checkout);
     }
 
     async completeForm(formData: CheckoutFormData) {

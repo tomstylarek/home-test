@@ -4,7 +4,7 @@ import { HomePage } from '../pages/HomePage';
 import { ErrorMessages } from '../constants/ErrorMessages';
 import { credentials } from '../data/credentials';
 
-test.describe('Login tests', () => {
+test.describe('Login page', () => {
     let loginPage: LoginPage;
 
     test.beforeEach(async ({ page }) => {

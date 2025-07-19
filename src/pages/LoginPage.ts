@@ -19,6 +19,6 @@ export class LoginPage extends BasePage {
     }
 
     override async visit() {
-        this.page.goto(Routes.Login);
+        await this.page.goto(Routes.Login);
     }
 }

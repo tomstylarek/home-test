@@ -6,7 +6,7 @@ export class OrderPage extends BasePage {
     private readonly orderNumberElement = this.page.locator('[data-id=ordernumber]');
 
     override async visit() {
-        this.page.goto(Routes.Order);
+        await this.page.goto(Routes.Order);
     }
 
     async checkOrderNumber() {

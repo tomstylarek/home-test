@@ -12,6 +12,6 @@ export class HomePage extends BasePage {
     }
 
     override async visit() {
-        this.page.goto(Routes.Home);
+        await this.page.goto(Routes.Home);
     }
 }
