@@ -16,6 +16,10 @@ services:
     environment:
       BASE_URL: "http://demo-app:3100"
     command: >
-      bash -c "npm ci &&
-               npx playwright install --with-deps &&
-               npx playwright test --reporter=line"
+      bash -ce "
+        echo 'Waiting for demo-app...';
+        until curl -s http://demo-app:3100; do sleep 1; done;
+        echo 'demo-app is ready!';
+        npm install;
+        npx playwright install --with-deps;
+        npx playwright test --reporter=line"

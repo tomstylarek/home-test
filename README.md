@@ -15,7 +15,7 @@ Before you begin, ensure you have installed:
 ## Run Tests with Docker (Recommended)
 **Only one command** is needed to execute all tests across multiple browsers and devices:
 ```bash
-docker-compose up
+docker compose up
 ```
 This will automatically:
 - Pull required Docker images (including the demo app)
