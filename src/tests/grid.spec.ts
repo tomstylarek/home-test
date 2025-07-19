@@ -10,7 +10,7 @@ test.describe('Grid Page', () => {
         await gridPage.visit();
     });
 
-    test('Grid item', async () => {
+    test('Grid item has correct name and price', async () => {
         const item: GridItem = {
             position: 7,
             name: "Super Pepperoni",
@@ -20,7 +20,7 @@ test.describe('Grid Page', () => {
         await gridPage.validateItem(item);
     });
 
-    test('All grid items', async () => {
+    test('All grid items have required fields', async () => {
         await gridPage.validateItemsHaveRequiredFields();
     });
 });

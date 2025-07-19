@@ -32,11 +32,11 @@ export default defineConfig({
     /* Mobile */
     {
       name: 'Mobile Chrome',
-      use: devices['Pixel 5'],
+      use: devices['Galaxy S24'],
     },
     {
       name: 'Mobile Safari',
-      use: devices['iPhone 12'],
+      use: devices['iPhone 15 Pro Max'],
     },
   ],
 });

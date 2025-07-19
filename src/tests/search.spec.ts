@@ -9,12 +9,12 @@ test.describe('Search Page', () => {
         await searchPage.visit();
     });
 
-    test('Search success', async () => {
+    test('Search successfully and validates result', async () => {
         await searchPage.search('automation');
         await searchPage.validateResultFor('automation');
     });
 
-    test('Search empty', async () => {
+    test('Search of an empty string and validates result', async () => {
         await searchPage.search('');
         await searchPage.validateResultFor('');
     });

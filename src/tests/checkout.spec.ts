@@ -34,7 +34,7 @@ test.describe('Checkout Page', () => {
 
     test.describe('Cart Component', () => {
     
-        test('Displays correct total', async () => {
+        test('Displays correct total items', async () => {
             await checkoutPage.validateTotalCartItems();
         });
     });
