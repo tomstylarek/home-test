@@ -5,7 +5,7 @@ services:
       - "3100:3100"
 
   tests:
-    image: mcr.microsoft.com/playwright:v1.45.0-jammy
+    image: mcr.microsoft.com/playwright:v1.54.1-jammy
     working_dir: /work
     volumes:
       - ./:/work
