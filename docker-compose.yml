@@ -12,6 +12,8 @@ services:
       - ./playwright-report:/work/playwright-report
     depends_on:
       - demo-app
+    ports:
+      - "9323:9323" # to access playwright report in browser
     environment:
       BASE_URL: "http://demo-app:3100"
     command: >
