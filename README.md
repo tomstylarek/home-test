@@ -24,14 +24,6 @@ This will automatically:
   - **Mobile**: Android (Galaxy S24), iOS (iPhone 15 Pro Max)
 - Generate HTML reports upon completion
 
-## View Results
-
-You can open the Playwright HTML report after the tests have run by executing:
-
-```bash
-docker compose run tests npx playwright show-report
-```
-
 ### Additional Useful Commands
 
 * **Re-run all tests:**
