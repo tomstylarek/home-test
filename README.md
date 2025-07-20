@@ -63,10 +63,6 @@ npx playwright test
 ### Important Notes
 1. First execution may take a few minutes (image downloads).
 2. Failure videos/screenshots are saved in `test-results/`.
-3. To run specific tests (e.g. mobile only):
-   ```bash
-   docker-compose run tests npx playwright test --project="Mobile Chrome"
-   ```
 
 ---
 
@@ -75,7 +71,7 @@ If you encounter issues:
 - **Port conflict**: Ensure port 3100 is free
 - **Docker errors**: Try rebuilding images:
   ```bash
-  docker-compose build --no-cache
+  docker compose build --no-cache
   ```
 
 ---
@@ -110,7 +106,3 @@ docker run --privileged --rm tonistiigi/binfmt --install arm64
 ```
 
 This tells Docker to emulate the `arm64` architecture so the image can run correctly on your system.
-
----
-
-📝 *Note:* Emulation may run slower, but it will allow you to run the tests without issues.
