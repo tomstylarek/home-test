@@ -19,7 +19,9 @@ services:
     command: >
       bash -ce "
         echo 'Waiting for demo-app...';
-        until curl -s http://demo-app:3100; do sleep 1; done;
+        until curl -s --head --fail http://demo-app:3100 > /dev/null; do
+          sleep 1;
+        done;
         echo 'demo-app is ready!';
         npm install;
         npx playwright install --with-deps;
