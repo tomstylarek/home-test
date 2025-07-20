@@ -35,28 +35,24 @@ docker compose run tests npx playwright show-report
 ### Additional Useful Commands
 
 * **Re-run all tests:**
-  This will re-run the entire test suite:
 
   ```bash
   docker compose run tests npx playwright test
   ```
 
 * **Run a single test file:**
-  Replace the path with the one you need:
 
   ```bash
   docker compose run tests npx playwright test tests/example.spec.ts
   ```
 
 * **Run a test with a specific device or browser:**
-  For example, running with the iPhone 13 device emulation:
 
   ```bash
   docker compose run tests npx playwright test --project='Mobile Safari'
   ```
 
 * **Open interactive mode (`--ui`):**
-  This opens the Playwright test runner UI in your browser:
 
   ```bash
   docker compose run tests npx playwright test --ui
