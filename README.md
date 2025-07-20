@@ -44,12 +44,6 @@ This will automatically:
   docker compose run tests npx playwright test --project='Mobile Safari'
   ```
 
-* **Open interactive mode (`--ui`):**
-
-  ```bash
-  docker compose run tests npx playwright test --ui
-  ```
-
 ## Alternative Execution (without Docker)
 To run locally, you'll need to have Node.js installed. The web app should be running in [localhost:3100](http://localhost:3100), and then:
 
